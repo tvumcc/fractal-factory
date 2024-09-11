@@ -1,0 +1,37 @@
+[gd_scene format=3 uid="uid://cm8jgd76j18sg"]
+
+[node name="SierpinskiArrowheadSettings" type="VBoxContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 2
+text = "Sierpinski Arrowhead"
+horizontal_alignment = 1
+
+[node name="Iterations" type="VBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Iterations"]
+layout_mode = 2
+text = "Iterations"
+
+[node name="HSlider" type="HSlider" parent="Iterations"]
+layout_mode = 2
+min_value = 1.0
+max_value = 9.0
+value = 7.0
+
+[node name="LineLength" type="VBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="LineLength"]
+layout_mode = 2
+text = "Line Length"
+
+[node name="HSlider" type="HSlider" parent="LineLength"]
+layout_mode = 2
+value = 9.0

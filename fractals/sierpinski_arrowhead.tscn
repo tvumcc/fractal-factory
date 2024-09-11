@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://d2optkxrd1p4d"]
+
+[ext_resource type="Script" path="res://scripts/sierpinski_arrowhead_viewer.gd" id="1_8v1l6"]
+
+[node name="SierpinskiArrowhead" type="Node2D"]
+script = ExtResource("1_8v1l6")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+anchor_mode = 0
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0

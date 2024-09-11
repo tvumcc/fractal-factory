@@ -1,0 +1,113 @@
+[gd_scene load_steps=4 format=3 uid="uid://etu0vdr7h4u4"]
+
+[ext_resource type="Script" path="res://scripts/fractal_loader.gd" id="1_jq5mo"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bxf04"]
+bg_color = Color(0.156863, 0.156863, 0.156863, 1)
+
+[sub_resource type="Theme" id="Theme_qs3rg"]
+MarginContainer/constants/margin_bottom = 5
+MarginContainer/constants/margin_left = 5
+MarginContainer/constants/margin_right = 5
+MarginContainer/constants/margin_top = 5
+
+[node name="Main" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_jq5mo")
+
+[node name="VSplitContainer" type="HSplitContainer" parent="."]
+clip_contents = true
+layout_mode = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+split_offset = 250
+dragger_visibility = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="VSplitContainer"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_bxf04")
+
+[node name="MarginContainer" type="MarginContainer" parent="VSplitContainer/PanelContainer"]
+layout_mode = 2
+theme = SubResource("Theme_qs3rg")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VSplitContainer/PanelContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VSplitContainer/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VSplitContainer/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "Fractal Factory"
+horizontal_alignment = 1
+
+[node name="HSeparator" type="HSeparator" parent="VSplitContainer/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="VSplitContainer/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label2" type="Label" parent="VSplitContainer/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer2"]
+layout_mode = 2
+text = "Fractal Mode"
+
+[node name="FractalSelector" type="OptionButton" parent="VSplitContainer/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer2"]
+unique_name_in_owner = true
+layout_mode = 2
+item_count = 11
+popup/item_0/text = "Escape Time Fractals"
+popup/item_0/id = 100
+popup/item_0/separator = true
+popup/item_1/text = "Mandelbrot Set"
+popup/item_1/id = 0
+popup/item_2/text = "Julia Set"
+popup/item_2/id = 1
+popup/item_3/text = "Sin Julia"
+popup/item_3/id = 2
+popup/item_4/text = "Spiral Septagon"
+popup/item_4/id = 3
+popup/item_5/text = "3D Fractals"
+popup/item_5/id = 101
+popup/item_5/separator = true
+popup/item_6/text = "Menger Sponge"
+popup/item_6/id = 4
+popup/item_7/text = "Sierpinski Pyramid"
+popup/item_7/id = 5
+popup/item_8/text = "L-System Fractals"
+popup/item_8/id = 103
+popup/item_8/separator = true
+popup/item_9/text = "Sierpinski Arrowhead"
+popup/item_9/id = 6
+popup/item_10/text = "Dragon Curve"
+popup/item_10/id = 7
+
+[node name="HSeparator" type="HSeparator" parent="VSplitContainer/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer2"]
+layout_mode = 2
+
+[node name="FractalSettings" type="VBoxContainer" parent="VSplitContainer/PanelContainer/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="FractalSettingsLabel" type="Label" parent="VSplitContainer/PanelContainer/MarginContainer/VBoxContainer/FractalSettings"]
+layout_mode = 2
+text = "Fractal Settings
+"
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="VSplitContainer"]
+layout_mode = 2
+stretch = true
+
+[node name="CanvasViewport" type="SubViewport" parent="VSplitContainer/SubViewportContainer"]
+unique_name_in_owner = true
+handle_input_locally = false
+size = Vector2i(1670, 1080)
+size_2d_override_stretch = true
+render_target_update_mode = 4
+
+[connection signal="item_selected" from="VSplitContainer/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer2/FractalSelector" to="." method="_on_option_button_item_selected"]

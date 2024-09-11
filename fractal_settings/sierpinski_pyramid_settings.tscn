@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://dqe4gicuecsx5"]
+
+[node name="SierpinskiPyramidSettings" type="VBoxContainer"]
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 2
+text = "Sierpinski Pyramid"
+horizontal_alignment = 1
+
+[node name="Iterations" type="VBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Iterations"]
+layout_mode = 2
+text = "Iterations"
+
+[node name="HSlider" type="HSlider" parent="Iterations"]
+layout_mode = 2
+min_value = 1.0
+max_value = 8.0
+value = 6.0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+layout_mode = 2
+text = "Controls:
+Right click and drag to rotate the camera view
+
+Use the scroll wheel to move through the fractal"
+fit_content = true

@@ -1,0 +1,29 @@
+[gd_scene load_steps=8 format=3 uid="uid://cnqkup5pgb1go"]
+
+[ext_resource type="Script" path="res://scripts/menger_sponge_viewer.gd" id="1_i0m2d"]
+[ext_resource type="Texture2D" uid="uid://bt6pwo4srtwl7" path="res://assets/industrial_sunset_puresky_2k.hdr" id="2_5igp2"]
+[ext_resource type="BoxMesh" uid="uid://crd6x3lsqpuqp" path="res://assets/sponge_cube.tres" id="3_hkk7c"]
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_ogmmh"]
+panorama = ExtResource("2_5igp2")
+
+[sub_resource type="Sky" id="Sky_qknh4"]
+sky_material = SubResource("PanoramaSkyMaterial_ogmmh")
+
+[sub_resource type="Environment" id="Environment_o6s04"]
+background_mode = 2
+sky = SubResource("Sky_qknh4")
+
+[sub_resource type="MultiMesh" id="MultiMesh_08jhv"]
+transform_format = 1
+mesh = ExtResource("3_hkk7c")
+
+[node name="MengerSponge" type="Node3D"]
+script = ExtResource("1_i0m2d")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, -3.26399e-05, 6.97415e-05, 2.95299e-05, 0.999026, 0.0441371, -7.11141e-05, -0.0441371, 0.999026, 0, 1.03306, 2.39448)
+environment = SubResource("Environment_o6s04")
+
+[node name="MultiMeshInstance3D" type="MultiMeshInstance3D" parent="."]
+multimesh = SubResource("MultiMesh_08jhv")

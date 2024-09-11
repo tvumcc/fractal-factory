@@ -1,0 +1,37 @@
+[gd_scene load_steps=5 format=3 uid="uid://cu6r5c81hj8mp"]
+
+[ext_resource type="Script" path="res://scripts/sin_julia_viewer.gd" id="1_nvqo2"]
+[ext_resource type="Shader" path="res://shaders/sin_julia.gdshader" id="2_8coq7"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_inej5"]
+shader = ExtResource("2_8coq7")
+shader_parameter/iterations = 40
+shader_parameter/pos = Vector2(0, 0)
+shader_parameter/constant = Vector2(0, 0)
+shader_parameter/zoom = 1.0
+shader_parameter/aspect_ratio = null
+shader_parameter/brightness = 1.0
+shader_parameter/starting_color = Vector3(0, 0, 0)
+shader_parameter/ending_color = Vector3(0.4, 0.8, 0.6)
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_lnxx5"]
+
+[node name="SinJulia" type="Node2D"]
+script = ExtResource("1_nvqo2")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+anchor_mode = 0
+
+[node name="TextureRect" type="TextureRect" parent="."]
+material = SubResource("ShaderMaterial_inej5")
+offset_right = 40.0
+offset_bottom = 40.0
+texture = SubResource("PlaceholderTexture2D_lnxx5")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.05
+autostart = true
+
+[connection signal="mouse_entered" from="TextureRect" to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="TextureRect" to="." method="_on_mouse_exited"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

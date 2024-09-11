@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://c1mpnwnkvwqvq"]
+
+[ext_resource type="Script" path="res://scripts/dragon_curve_viewer.gd" id="1_ldwle"]
+
+[node name="DragonCurve" type="Node2D"]
+script = ExtResource("1_ldwle")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+anchor_mode = 0
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0

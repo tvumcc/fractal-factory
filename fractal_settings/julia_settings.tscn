@@ -1,0 +1,91 @@
+[gd_scene format=3 uid="uid://cx728p8yjtou"]
+
+[node name="JuliaSettings" type="VBoxContainer"]
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 2
+text = "Julia Set"
+horizontal_alignment = 1
+
+[node name="ConstantLabel" type="Label" parent="."]
+layout_mode = 2
+text = "c: "
+
+[node name="CheckBox" type="CheckBox" parent="."]
+layout_mode = 2
+text = "Rainbow"
+
+[node name="Iterations" type="VBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Iterations"]
+layout_mode = 2
+text = "Iterations"
+
+[node name="HSlider" type="HSlider" parent="Iterations"]
+layout_mode = 2
+max_value = 800.0
+value = 375.0
+
+[node name="Order" type="VBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Order"]
+layout_mode = 2
+text = "Order"
+
+[node name="HSlider" type="HSlider" parent="Order"]
+layout_mode = 2
+min_value = 2.0
+max_value = 10.0
+value = 5.0
+
+[node name="Brightness" type="VBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Brightness"]
+layout_mode = 2
+text = "Brightness"
+
+[node name="HSlider" type="HSlider" parent="Brightness"]
+layout_mode = 2
+min_value = 0.1
+max_value = 10.0
+step = 0.05
+value = 10.0
+
+[node name="StartingColor" type="VBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="StartingColor"]
+layout_mode = 2
+text = "Starting Color"
+
+[node name="ColorPickerButton" type="ColorPickerButton" parent="StartingColor"]
+custom_minimum_size = Vector2(0, 25)
+layout_mode = 2
+edit_alpha = false
+
+[node name="EndingColor" type="VBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="EndingColor"]
+layout_mode = 2
+text = "Ending Color"
+
+[node name="ColorPickerButton" type="ColorPickerButton" parent="EndingColor"]
+custom_minimum_size = Vector2(0, 25)
+layout_mode = 2
+color = Color(0.4, 0.8, 0.6, 1)
+edit_alpha = false
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+layout_mode = 2
+text = "Controls:
+Use the scroll wheel to zoom in and out
+
+Left-click drag to move around the fractal
+
+Hold space and left-click drag the mouse across the image to change the c value
+"
+fit_content = true
