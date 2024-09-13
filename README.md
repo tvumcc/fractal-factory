@@ -1,6 +1,6 @@
 # Fractal Factory
 
-This project was initially created for my high school CS3 class. You can navigate tweak the parameters of multiple different fractals, 2D and 3D alike.
+This project was initially created for my high school CS3 class. You can navigate and tweak the parameters of multiple different fractals, 2D and 3D alike.
 
 ## Gallery
 ![Screenshot of Julia Set in Fractal Factory](images/julia_set.png)
